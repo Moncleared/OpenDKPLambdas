@@ -21,6 +21,10 @@ The following AWS components are required to be setup within your AWS account in
     * DKP_ADMIN must have a valid IAM role assigned to it for lambda execution
 
 ## Installation
+* TBD
+
+## API Gateway Installation
+* Visit the ReadMe file in ./apigateway-exports folder
 
 ### Clone repo
 
