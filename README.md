@@ -20,13 +20,14 @@ The following AWS components are required to be setup within your AWS account in
     * DKP_ADMIN usergroup needs to be created as part of the UserPool for Administrators
     * DKP_ADMIN must have a valid IAM role assigned to it for lambda execution
 
-## Installation
-* TBD
 
-## API Gateway Installation
-* Visit the ReadMe file in ./apigateway-exports folder
+## AWS API Gateway Installation
+* Visit the ReadMe file in ./apigateway-exports directory
 
-### Clone repo
+## AWS RDS Instance Setup/Config
+* Visit the README.ME file in ./database-schema directory
+
+## AWS Lambda Installation/Publishing
 
 ``` bash
 # clone the repo
