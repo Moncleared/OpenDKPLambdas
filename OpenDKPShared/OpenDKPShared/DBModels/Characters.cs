@@ -24,6 +24,7 @@ namespace OpenDKPShared.DBModels
         public string Race { get; set; }
         public string Gender { get; set; }
         public string Guild { get; set; }
+        public DateTime? MainChange { get; set; }
 
         public Clients Client { get; set; }
         public ICollection<Adjustments> Adjustments { get; set; }

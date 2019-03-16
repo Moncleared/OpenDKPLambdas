@@ -126,8 +126,14 @@ namespace GetSummary
             if (vHasAttendedRaid != null)
                 vCalculatedDate = vHasAttendedRaid.IdTickNavigation.Raid.Timestamp.Date;
 
+            DateTime v30Day = DateTime.Now.AddDays(-30).Date;
+
+            //If a player has main changed, we calculate their 30 day RA based off their latest main change date
+            DateTime vMainChange = pCharacter.MainChange ?? DateTime.MinValue;
+            v30Day = new[] { v30Day, vMainChange }.Max();
+
             pPlayerSummaryModel.AttendedTicks_30 = (double)pCharacter.TicksXCharacters
-                .Where(x => x.ClientId.Equals(pClientId) && DateTime.Compare(x.IdTickNavigation.Raid.Timestamp.Date, DateTime.Now.AddDays(-30).Date) >= 0)
+                .Where(x => x.ClientId.Equals(pClientId) && DateTime.Compare(x.IdTickNavigation.Raid.Timestamp.Date, v30Day) >= 0)
                 .Count();
             pPlayerSummaryModel.TotalTicks_30 = totalTicks30;
             pPlayerSummaryModel.Calculated_30 = pPlayerSummaryModel.AttendedTicks_30 / pPlayerSummaryModel.TotalTicks_30;

@@ -106,7 +106,7 @@ namespace UserRequestsLambda
             {
                 InjectRequestDetails(pDatabase, pClientId, vRequest);
             }
-            vResponse = HttpHelper.HandleResponse(vResults, 200);
+            vResponse = HttpHelper.HandleResponse(vResults, 200, true);
             return vResponse;
         }
 
@@ -120,7 +120,7 @@ namespace UserRequestsLambda
             {
                 InjectRequestDetails(pDatabase, pClientId, vRequest);
             }
-            vResponse = HttpHelper.HandleResponse(vResults, 200);
+            vResponse = HttpHelper.HandleResponse(vResults, 200, true);
             return vResponse;
         }
 
@@ -180,6 +180,7 @@ namespace UserRequestsLambda
                         //Update Caches
                         int vStatus = CacheManager.UpdateSummaryCacheAsync(pClientId).GetAwaiter().GetResult();
                         Console.WriteLine("SummaryCacheResponse=" + vStatus);
+                        vResponse = HttpHelper.HandleResponse(vRequest, 200, true);
                     }
                 }
                 else if (pUserRequest.RequestStatus == UserRequests.STATUS_DENIED)
@@ -196,7 +197,7 @@ namespace UserRequestsLambda
                     vRequest.ClientId = pClientId;
 
                     pDatabase.SaveChanges();
-                    vResponse = HttpHelper.HandleResponse(vRequest, 200);
+                    vResponse = HttpHelper.HandleResponse(vRequest, 200, true);
                 }
             }
             return vResponse;
@@ -235,7 +236,7 @@ namespace UserRequestsLambda
 
                         pDatabase.SaveChanges();
                         dbContextTransaction.Commit();
-                        vResponse = HttpHelper.HandleResponse(vRequest, 200);
+                        vResponse = HttpHelper.HandleResponse(vRequest, 200, true);
                     }
                 }
                 else if (pUserRequest.RequestStatus == UserRequests.STATUS_DENIED)
@@ -252,7 +253,7 @@ namespace UserRequestsLambda
                     vRequest.ClientId = pClientId;
 
                     pDatabase.SaveChanges();
-                    vResponse = HttpHelper.HandleResponse(vRequest, 200);
+                    vResponse = HttpHelper.HandleResponse(vRequest, 200, true);
                 }
             }
             return vResponse;
@@ -316,7 +317,7 @@ namespace UserRequestsLambda
                 pUserRequest.ClientId = vClientId;
                 pDatabase.Add(pUserRequest);
                 pDatabase.SaveChanges();
-                vResponse = HttpHelper.HandleResponse(pUserRequest, 200);
+                vResponse = HttpHelper.HandleResponse(pUserRequest, 200, true);
             }
             return vResponse;
         }
@@ -362,7 +363,7 @@ namespace UserRequestsLambda
                 pUserRequest.ClientId = vClientId;
                 pDatabase.Add(pUserRequest);
                 pDatabase.SaveChanges();
-                vResponse = HttpHelper.HandleResponse(pUserRequest, 200);
+                vResponse = HttpHelper.HandleResponse(pUserRequest, 200, true);
             }
             return vResponse;
         }

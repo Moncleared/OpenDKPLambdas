@@ -35,7 +35,7 @@ namespace GetCharacter
                     {
                         var vResult = vDatabase.Characters.First(x => x.ClientId.Equals(vClientId) &&
                                         x.Name.Equals(vCharacterName, StringComparison.InvariantCultureIgnoreCase));
-                        //TODO - Multi-Tenancy
+
                         vResult.SummaryModel = CacheManager.GetPlayerSummary(vDatabase, vCharacterName, vClientId);
                         vResponse = HttpHelper.HandleResponse(vResult, 200);
                     }

@@ -1,4 +1,5 @@
 ﻿using OpenDKPShared.DBModels;
+using System;
 
 namespace OpenDKPShared.ClientModels
 {
@@ -14,6 +15,7 @@ namespace OpenDKPShared.ClientModels
             this.Gender = pCharacter.Gender;
             this.Guild = pCharacter.Guild;
             this.Active = pCharacter.Active;
+            this.MainChange = pCharacter.MainChange;
         }
         public string Name { get; set; }
         public string Rank { get; set; }
@@ -22,6 +24,8 @@ namespace OpenDKPShared.ClientModels
         public string Race { get; set; }
         public string Gender { get; set; }
         public string Guild { get; set; }
+
+        public DateTime? MainChange { get; set; }
 
         public sbyte Active { get; set; }
     }

@@ -245,6 +245,6 @@ namespace InsertOrUpdateRaid
     }
     class SimpleTick
     {
-        public int TickId { get; set; }
+        public int? TickId { get; set; }
     }
 }
