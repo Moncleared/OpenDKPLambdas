@@ -14,7 +14,7 @@ The following AWS components are required to be setup within your AWS account in
 
 * [API Gateway](https://aws.amazon.com/api-gateway/) - You'll need to setup APIs pointing to each lambda
 * [RDS](https://aws.amazon.com/rds/) - I used a MySQL Micro RDS instance, the dbContext is within this source code for the structure of the DB
-* [IAM](https://aws.amazon.com/rds/) - You'll need the appropriate Identity & Access Management roles setup
+* [IAM](https://aws.amazon.com/iam/) - You'll need the appropriate Identity & Access Management roles setup
 * [Cognito](https://aws.amazon.com/cognito/) - Cognito handles our Users & Authorization
     * Both UserPool & Federated Identity Providers will have to be setup
     * DKP_ADMIN usergroup needs to be created as part of the UserPool for Administrators
